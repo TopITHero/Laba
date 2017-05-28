@@ -68,8 +68,8 @@ void MainWindow::on_button_quit(){
 	hide();
 }	
 void MainWindow::button_swiched(){
-	char on[4] = "ON";
-	char off[4] = "OFF";
+	char on[10] = "S@ON@";
+	char off[10] = "S@OFF@";
 	if (Button_On_Off.get_active()){
 		adjustment_t->set_value(this->m_temp);
 		adjustment_d->set_value(this->f_temp);
@@ -83,9 +83,9 @@ void MainWindow::button_swiched(){
 	}
 }
 void MainWindow::adjustment_t_value_changed(){
-	char m_msg_arr[] = "Main temp: ";
+	char m_msg_arr[] = "M@";
 	char temp_arr[10];
-	char endmsg[] = "#";
+	char endmsg[] = "@";
 	char* send_arr = new char[strlen(m_msg_arr)+strlen(temp_arr)+1];
 	double number;
 	number = adjustment_t->get_value();
@@ -97,9 +97,9 @@ void MainWindow::adjustment_t_value_changed(){
 	delete[] send_arr;
 }
 void MainWindow::adjustment_d_value_changed(){
-	char f_msg_arr[] = "Freeze temp: ";
+	char f_msg_arr[] = "F@";
 	char temp_arr[10];
-	char endmsg[] = "#";
+	char endmsg[] = "@";
 	char* send_arr = new char[strlen(f_msg_arr)+strlen(temp_arr)+1];
 	double number;
 	number = adjustment_d->get_value();
